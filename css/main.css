@@ -110,6 +110,23 @@ body {
       transform: scale(1);
    }
 }
+/* Preloader styling */
+.preloader {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: var(--brightYellow);
+   z-index: 999;
+   display: grid;
+   justify-content: center;
+   align-items: center;
+}
+.preloader__item {
+
+}
+
 /* Navigation Styling */
 .nav {
    position: fixed;
