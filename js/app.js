@@ -10,7 +10,7 @@
       window.addEventListener('load', function () {
          setTimeout(function () {
             ui.hidePreloader();
-         }, 3000)
+         }, 2500)
       })
       // Navigation Toggle Button
       document.querySelector('.navBtn').addEventListener('click', function () {
