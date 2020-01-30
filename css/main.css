@@ -210,5 +210,9 @@ body {
       height: 100%;
       background: var(--brown);
       border-radius: 0.5rem;
+      transition: all 0.3s ease;
+   }
+   .btnSlide{
+      left: 50%;
    }
 }
