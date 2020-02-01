@@ -33,7 +33,10 @@
       if (!value) {
          ui.showFeedback('You must enter valid values', 'error');
       } else {
+         let customer = new Customer(name, lastName, email);
+         ui.addCustomer(customer);
          ui.showFeedback('Welcome to our shop!', 'success');
+         ui.clearInputFields();
       }
    })
    // Constructor function object
@@ -84,5 +87,31 @@
       setTimeout(function () {
          document.querySelector('.drink-form__feedback').classList.remove(type);
       },2000)
+   }
+   // add customer
+   UI.prototype.addCustomer = function (customer) {
+      const images = [1, 2, 3, 4, 5];
+      let random = Math.floor(Math.random() * images.length);
+
+      const div = document.createElement('div');
+      div.classList.add('person');
+      div.innerHTML = `
+      <img src="img/person-${images[random]}.jpeg" alt="perosn" class="person__thumbnail">
+      <h4 class="person__name">${customer.name}</h4>
+      <h4 class="person__name">${customer.lastName}</h4>
+      `;
+      document.querySelector('.drink-card__list').appendChild(div);
+   }
+   // Clear input fields
+   UI.prototype.clearInputFields = function () {
+      document.querySelector('.input-name').value = '';
+      document.querySelector('.input-lastname').value = '';
+      document.querySelector('.input-email').value = '';
+   }
+   // Customer constructor function
+   function Customer(name, lastName, email) {
+      this.name = name;
+      this.lastName = lastName;
+      this.email = email;
    }
 })();
