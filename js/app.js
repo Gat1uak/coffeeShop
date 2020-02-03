@@ -99,7 +99,7 @@
       <img src="img/person-${images[random]}.jpeg" alt="perosn" class="person__thumbnail">
       <h4 class="person__name">${customer.name}</h4>
       <h4 class="person__name">${customer.lastName}</h4>
-      `;
+      `;  
       document.querySelector('.drink-card__list').appendChild(div);
    }
    // Clear input fields
