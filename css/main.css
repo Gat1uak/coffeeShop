@@ -484,7 +484,7 @@ body {
    height: 60vh;
    width: 80vw;
    border-radius: 0.5rem;
-   border: 0.5rem solid var(--yellow);
+   border: 0.2rem solid var(--yellow);
 }
 .work-modal__close {
    position: fixed;
