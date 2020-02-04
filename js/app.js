@@ -39,6 +39,18 @@
          ui.clearInputFields();
       }
    })
+   // Show modal links
+   const links = document.querySelectorAll('.work-item__icon');
+   links.forEach(function(item){
+      item.addEventListener('click', function (event) {
+         event.preventDefault();
+         ui.showModal(event);
+      })
+   });
+   // Hide modal event listener
+   document.querySelector('.work-modal__close').addEventListener('click', function () {
+      ui.closeModal();
+   })
    // Constructor function object
    function UI() { }
    // Hide Preloader
@@ -99,7 +111,7 @@
       <img src="img/person-${images[random]}.jpeg" alt="perosn" class="person__thumbnail">
       <h4 class="person__name">${customer.name}</h4>
       <h4 class="person__name">${customer.lastName}</h4>
-      `;  
+      `;
       document.querySelector('.drink-card__list').appendChild(div);
    }
    // Clear input fields
@@ -107,6 +119,22 @@
       document.querySelector('.input-name').value = '';
       document.querySelector('.input-lastname').value = '';
       document.querySelector('.input-email').value = '';
+   }
+   // Show modal
+   UI.prototype.showModal = function (event) {
+      event.preventDefault();
+      if (event.target.parentElement.classList.contains('work-item__icon')) {
+         let id = event.target.parentElement.dataset.id;
+
+         const modal = document.querySelector('.work-modal');
+         const modalItem = document.querySelector('.work-modal__item');
+         modal.classList.add('work-modal__show');
+         let result = modalItem.style.backgroundImage = `url(img/work-${id}.jpeg)`;
+      };
+   }
+   // Hide Modal function
+   UI.prototype.closeModal = function () {
+      document.querySelector('.work-modal').classList.remove('work-modal__show');
    }
    // Customer constructor function
    function Customer(name, lastName, email) {
